@@ -1,6 +1,5 @@
 package coursereviewsystem.configurations;
 
-import com.sun.tools.doclint.Env;
 import coursereviewsystem.models.Instructor;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
