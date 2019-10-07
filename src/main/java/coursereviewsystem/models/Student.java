@@ -1,5 +1,7 @@
 package coursereviewsystem.models;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,17 +9,17 @@ import javax.persistence.*;
 public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GenericGenerator(name = "id", strategy = "increment")
     private int id;
 
     @Column(name = "first_name")
-    private String firstName = "Muse";
+    private String firstName;
 
     @Column(name = "last_name")
-    private String lastName = "Yisa";
+    private String lastName;
 
     @Column(name = "age")
-    private int age = 10;
+    private int age;
 
     public Student() { }
 
@@ -44,11 +46,11 @@ public class Student {
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName = firstName.trim();
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastName = lastName.trim();
     }
 
     public void setAge(int age) {
