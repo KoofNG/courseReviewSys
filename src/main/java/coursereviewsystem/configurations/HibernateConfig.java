@@ -1,6 +1,7 @@
 package coursereviewsystem.configurations;
 
 import coursereviewsystem.models.Instructor;
+import coursereviewsystem.models.Student;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -31,6 +32,7 @@ public class HibernateConfig {
                 // Add annotation for all entity here
                 // configuration.addAnnotatedClass(Student.class);
                  configuration.addAnnotatedClass(Instructor.class);
+                 configuration.addAnnotatedClass(Student.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
