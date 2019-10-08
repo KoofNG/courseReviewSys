@@ -2,9 +2,12 @@ package coursereviewsystem.controllers;
 
 import coursereviewsystem.dao.InstructorDao;
 import coursereviewsystem.models.Instructor;
+import coursereviewsystem.models.InstructorDetails;
+import coursereviewsystem.models.InstructorForm;
 import coursereviewsystem.models.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -37,9 +40,12 @@ public class Routing {
     }
 
     @RequestMapping(value = "/register-instructor", method = RequestMethod.GET)
-    public String registerInstructor(Model model) {
-        Instructor instructor = new Instructor();
-        model.addAttribute("instructorModel", instructor);
+    public String registerInstructor(ModelMap model) {
+        InstructorForm instructorForm = new InstructorForm();
+//        Instructor instructor = new Instructor();
+//        InstructorDetails instructorDetails = new InstructorDetails();
+
+        model.addAttribute("instructorFormModel", instructorForm);
         return "instructor-registration-form";
     }
 

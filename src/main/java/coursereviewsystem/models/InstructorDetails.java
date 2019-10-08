@@ -1,9 +1,7 @@
 package coursereviewsystem.models;
 
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "instructorDetails")
@@ -12,11 +10,11 @@ public class InstructorDetails{
     @GenericGenerator(name = "id", strategy = "increment")
     private int id;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "instructorID")
     private Instructor instructor;
 
-    private String hobbies = "Kill Java";
+    private String hobbies;
 
     public InstructorDetails() {
     }

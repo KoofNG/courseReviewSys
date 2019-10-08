@@ -19,7 +19,7 @@ public class HibernateConfig {
             try {
                 Configuration configuration = new Configuration();
                 Properties settings = new Properties();
-                settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
+                settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
                 settings.put(Environment.URL, "jdbc:mysql://localhost:3306/courseReviewSystem?useSSL=false&serverTimezone=UTC");
                 settings.put(Environment.USER, "koofng");
                 settings.put(Environment.PASS, "passQ2k18#");

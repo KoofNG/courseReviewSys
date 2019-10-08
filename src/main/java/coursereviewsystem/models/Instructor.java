@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "testInstructor")
+@Table(name = "instructor")
 public class Instructor{
 
         @Id
@@ -25,8 +25,8 @@ public class Instructor{
         @Column(name = "age")
         private int age;
 
-//        @OneToOne(mappedBy = "instructor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//        private InstructorDetails instructorDetails;
+        @OneToOne(mappedBy = "instructor")
+        private InstructorDetails instructorDetails;
 
         public Instructor() { }
 
@@ -52,10 +52,6 @@ public class Instructor{
             return age;
         }
 
-//        public InstructorDetails getInstructorDetails() {
-//            return instructorDetails;
-//        }
-
         // Setters
 
         public void setFirstName(String firstName) {
@@ -69,10 +65,6 @@ public class Instructor{
         public void setAge(int age) {
             this.age = age;
         }
-
-//        public void setInstructorDetails(InstructorDetails instructorDetails) {
-//            this.instructorDetails = instructorDetails;
-//        }
 
         @Override
         public String toString() {

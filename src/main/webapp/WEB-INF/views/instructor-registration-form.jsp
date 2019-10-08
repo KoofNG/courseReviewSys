@@ -23,23 +23,28 @@
     </nav>
 
     <main role="main" class="container">
-        <form:form class="form-signin" method="post" action="${pageContext.request.contextPath}/saveInstructor" modelAttribute="instructorModel">
+        <form:form class="form-signin" method="post" action="${pageContext.request.contextPath}/saveInstructor" modelAttribute="instructorFormModel">
             <div class="text-center mb-4">
                 <h1 class="h3 mb-3 font-weight-normal">Register an Instructor</h1>
                 <p>Instructor registration form <code>:placeholder-shown</code> pseudo-element.</p>
             </div>
-
             <div class="form-group">
-                <form:label path="firstName">First Name</form:label>
-                <form:input type="text" class="form-control" path="firstName" placeholder="First Name"/>
+                <form:label path="instructor.firstName">First Name</form:label>
+                <form:input type="text" class="form-control" path="instructor.firstName" placeholder="First Name"/>
             </div>
             <div class="form-group">
-                <form:label path="lastName">Last Name</form:label>
-                <form:input type="text" class="form-control" path="lastName" placeholder="Last Name"/>
+                <form:label path="instructor.lastName">Last Name</form:label>
+                <form:input type="text" class="form-control" path="instructor.lastName" placeholder="Last Name"/>
             </div>
             <div class="form-group">
-                <form:label path="age">Age</form:label>
-                <form:input type="number" class="form-control" path="age" placeholder="How old are you"/>
+                <form:label path="instructor.age">Age</form:label>
+                <form:input type="number" class="form-control" path="instructor.age" placeholder="How old are you"/>
+            </div>
+            <hr/>
+            <h3>Instructor Details</h3>
+            <div class="form-group">
+                <form:label path="instructorDetails.hobbies">Your Hobbies (separated by comma)</form:label>
+                <form:input type="text" class="form-control" path="instructorDetails.hobbies" placeholder="Cycling, Boxing"/>
             </div>
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Register Instructor</button>
