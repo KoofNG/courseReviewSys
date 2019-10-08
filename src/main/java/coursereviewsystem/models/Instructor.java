@@ -2,6 +2,8 @@ package coursereviewsystem.models;
 
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 
@@ -10,8 +12,8 @@ import javax.persistence.*;
 public class Instructor{
 
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name="id")
+        @GeneratedValue(generator="increment")
+        @GenericGenerator(name="increment", strategy = "increment")
         private int id;
 
         @Column(name = "first_name")
