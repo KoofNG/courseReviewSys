@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: israel
@@ -21,7 +22,30 @@
         </button>
     </nav>
 
-    <main role="main" class="container"></main>
+    <main role="main" class="container">
+        <form:form class="form-signin" method="post" action="${pageContext.request.contextPath}/saveInstructor" modelAttribute="instructorModel">
+            <div class="text-center mb-4">
+                <h1 class="h3 mb-3 font-weight-normal">Register an Instructor</h1>
+                <p>Instructor registration form <code>:placeholder-shown</code> pseudo-element.</p>
+            </div>
+
+            <div class="form-group">
+                <form:label path="firstName">First Name</form:label>
+                <form:input type="text" class="form-control" path="firstName" placeholder="First Name"/>
+            </div>
+            <div class="form-group">
+                <form:label path="lastName">Last Name</form:label>
+                <form:input type="text" class="form-control" path="lastName" placeholder="Last Name"/>
+            </div>
+            <div class="form-group">
+                <form:label path="age">Age</form:label>
+                <form:input type="number" class="form-control" path="age" placeholder="How old are you"/>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Register Instructor</button>
+            <p class="mt-5 mb-3 text-muted text-center">&copy;2019</p>
+        </form:form>
+    </main>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

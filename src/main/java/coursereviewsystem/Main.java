@@ -1,14 +1,22 @@
 package coursereviewsystem;
 
-import coursereviewsystem.dao.InstructorDao;
+import coursereviewsystem.configurations.HibernateConfig;
 import coursereviewsystem.models.Instructor;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 public class Main {
     public static void main(String[] args) {
 
-//        InstructorDao instructorDao = new InstructorDao();
-////        Instructor instructor = new Instructor("Israel", "Michael", 23);
-////
-////        instructorDao.saveInstructor(instructor);
+        SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
+        Session session = sessionFactory.openSession();
+
+        session.beginTransaction();
+        Instructor instructor = new Instructor("Yaa", "Yoo", 28);
+        session.persist(instructor);
+
+        //  Integer id = (Integer) session.save(instructor);
+//        session.getTransaction().commit();
+        System.out.println(" id :: " +instructor);
     }
 }

@@ -37,7 +37,9 @@ public class Routing {
     }
 
     @RequestMapping(value = "/register-instructor", method = RequestMethod.GET)
-    public String registerInstructor() {
+    public String registerInstructor(Model model) {
+        Instructor instructor = new Instructor();
+        model.addAttribute("instructorModel", instructor);
         return "instructor-registration-form";
     }
 

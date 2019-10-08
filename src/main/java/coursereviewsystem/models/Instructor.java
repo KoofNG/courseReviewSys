@@ -1,15 +1,17 @@
 package coursereviewsystem.models;
 
-import org.hibernate.annotations.GenericGenerator;
+
 
 import javax.persistence.*;
 
+
 @Entity
-@Table(name = "instructor")
-public class Instructor {
+@Table(name = "testInstructor")
+public class Instructor{
 
         @Id
-        @GenericGenerator(name = "id", strategy = "increment")
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name="id")
         private int id;
 
         @Column(name = "first_name")
@@ -21,7 +23,7 @@ public class Instructor {
         @Column(name = "age")
         private int age;
 
-//        @OneToOne(mappedBy = "instructor", cascade = CascadeType.ALL)
+//        @OneToOne(mappedBy = "instructor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 //        private InstructorDetails instructorDetails;
 
         public Instructor() { }
@@ -30,6 +32,10 @@ public class Instructor {
             this.firstName = firstName;
             this.lastName = lastName;
             this.age = age;
+        }
+
+        public int getId() {
+            return id;
         }
 
         public String getFirstName() {
@@ -47,6 +53,8 @@ public class Instructor {
 //        public InstructorDetails getInstructorDetails() {
 //            return instructorDetails;
 //        }
+
+        // Setters
 
         public void setFirstName(String firstName) {
             this.firstName = firstName;
@@ -66,7 +74,7 @@ public class Instructor {
 
         @Override
         public String toString() {
-            return "Instructor :" + firstName + " " + lastName + " " + age + " || ";
+            return id + " " + firstName + " " + lastName + " " + age + " || ";
         }
 }
 

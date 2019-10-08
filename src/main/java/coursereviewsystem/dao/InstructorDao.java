@@ -12,9 +12,8 @@ public class InstructorDao {
 
         try {
             Session session = HibernateConfig.getSessionFactory().getCurrentSession();
-            transaction = session.beginTransaction();
+            session.beginTransaction();
             session.save(instructor);
-            session.getTransaction().commit();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
